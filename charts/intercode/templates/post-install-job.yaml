@@ -25,6 +25,6 @@ spec:
       containers:
       - name: post-install-job
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        command: ["bin/rails","db:create","db:schema:load"]
+        command: ["bin/rails","db:create","db:migrate"]
         env:
         {{- include "intercode.env" . | nindent 8 }}
